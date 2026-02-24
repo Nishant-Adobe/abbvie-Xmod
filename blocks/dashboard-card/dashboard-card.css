@@ -1,0 +1,40 @@
+.dashboard-card {
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  padding: 24px;
+  background-color: var(--background-color);
+}
+
+.dashboard-card .dashboard-card-body p:first-child {
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.dashboard-card .dashboard-card-body .data-point {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.dashboard-card .dashboard-card-body .suffix {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.dashboard-card .dashboard-card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.dashboard-card .dashboard-card-body ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dashboard-card .dashboard-card-body ul li a {
+  text-decoration: none;
+  color: var(--link-color);
+}
