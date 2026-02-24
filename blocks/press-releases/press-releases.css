@@ -1,0 +1,34 @@
+.press-releases {
+  background-color: var(--background-color);
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.press-releases .press-releases-body h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: var(--body-font-size-m);
+  letter-spacing: 0.05em;
+}
+
+.press-releases .press-releases-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.press-releases .press-releases-body ul li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.press-releases .press-releases-body ul li:last-child {
+  border-bottom: none;
+}
+
+.press-releases .press-releases-body ul li a {
+  text-decoration: none;
+  color: var(--link-color);
+}

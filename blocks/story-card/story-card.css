@@ -1,0 +1,41 @@
+.story-card {
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+
+.story-card .story-card-image {
+  line-height: 0;
+}
+
+.story-card .story-card-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.story-card .story-card-body {
+  padding: 24px;
+}
+
+.story-card .story-card-body p:first-child {
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.story-card .story-card-body h4,
+.story-card .story-card-body h3,
+.story-card .story-card-body h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.story-card .story-card-body a {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

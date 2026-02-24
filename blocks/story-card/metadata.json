@@ -1,0 +1,39 @@
+{
+  "variantName": "story-card",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-02-24T12:03:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.abbvie.com/",
+    "originPage": "AbbVie corporate homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "story-teaser",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + eyebrow + title + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "story teaser cards",
+      "article preview cards",
+      "featured content cards with image and CTA"
+    ],
+    "notSuitableFor": [
+      "stat/data display cards",
+      "navigation link lists",
+      "hero banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-24T12:03:00.000Z"
+  }
+}
