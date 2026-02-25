@@ -315,7 +315,21 @@ var CustomImportScript = (() => {
         "#onetrust-consent-sdk",
         '[class*="cookie"]',
         ".cmp-modal",
-        ".modal-overlay"
+        ".modal-overlay",
+        ".popup-disclaimer",
+        '[class*="popup"]',
+        ".back-to-top",
+        ".scroll-to-top"
+      ]);
+      WebImporter.DOMUtils.remove(element, [
+        ".cmp-video",
+        ".video-js",
+        ".video-wrapper",
+        ".brightcove-video",
+        "video",
+        ".video.cmp-video-full-width.ambient",
+        "[data-player]",
+        "[data-video-id]"
       ]);
       element.querySelectorAll("img[data-cmp-src]").forEach((img) => {
         const realSrc = img.getAttribute("data-cmp-src");
@@ -323,10 +337,18 @@ var CustomImportScript = (() => {
           img.setAttribute("src", realSrc);
         }
       });
-      WebImporter.DOMUtils.remove(element, [
-        ".cmp-video.cmp-video--youtube.cmp-video--embed",
-        ".video.cmp-video-full-width.ambient"
-      ]);
+      element.querySelectorAll("img").forEach((img) => {
+        const src = img.getAttribute("src") || "";
+        if (src.startsWith("blob:")) {
+          img.remove();
+        }
+      });
+      element.querySelectorAll("img").forEach((img) => {
+        const src = img.getAttribute("src") || "";
+        if (src.includes("t.co/") || src.includes("analytics.twitter.com") || src.includes("adsct") || src.includes("facebook.net") || src.includes("doubleclick.net") || src.includes("google-analytics.com") || src.includes("bat.bing.com")) {
+          img.remove();
+        }
+      });
     }
     if (hookName === TransformHook.afterTransform) {
       WebImporter.DOMUtils.remove(element, [
@@ -341,13 +363,45 @@ var CustomImportScript = (() => {
         "iframe",
         "link",
         "noscript",
-        "script"
+        "script",
+        "style"
       ]);
+      WebImporter.DOMUtils.remove(element, [
+        ".footer-container",
+        '[class*="footer"]',
+        ".social-links",
+        '[class*="social-icon"]',
+        ".disclaimer-popup",
+        '[class*="disclaimer"]'
+      ]);
+      element.querySelectorAll("p").forEach((p) => {
+        const text = p.textContent.trim();
+        if (text === "No results found" || text.includes("Change your search criteria") || text === "CLOSE" || text.includes("You are about to leave") || text === "No, I disagree" || text === "Yes, I agree") {
+          const parent = p.parentElement;
+          p.remove();
+          if (parent && parent.children.length === 0 && parent.textContent.trim() === "") {
+            parent.remove();
+          }
+        }
+      });
+      element.querySelectorAll("img").forEach((img) => {
+        const src = img.getAttribute("src") || "";
+        if (src.startsWith("blob:") || src.includes("t.co/") || src.includes("analytics.twitter.com") || src.includes("adsct")) {
+          const p = img.closest("p");
+          if (p) p.remove();
+          else img.remove();
+        }
+      });
       element.querySelectorAll("*").forEach((el) => {
         el.removeAttribute("data-track");
         el.removeAttribute("data-analytics");
         el.removeAttribute("onclick");
         el.removeAttribute("data-cmp-is");
+      });
+      element.querySelectorAll("p, div").forEach((el) => {
+        if (el.children.length === 0 && el.textContent.trim() === "") {
+          el.remove();
+        }
       });
     }
   }
