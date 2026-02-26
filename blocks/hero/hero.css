@@ -1,4 +1,6 @@
-/* Hero block - matches AbbVie hero container styling */
+/* Hero block - AbbVie two-layer pattern:
+   Row 1 = Navy bar with background image (large-radius)
+   Row 2 = White overlap container with breadcrumb/h1/description (medium-radius) */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -9,55 +11,23 @@
 }
 
 .hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 260px;
-  border-radius: 64px 0 0 0;
-  overflow: hidden;
   background-color: var(--brand-navy, #071d49);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  border-radius: 80px 0 0 0;
+  overflow: visible;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  color: var(--background-color);
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 44px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.hero p {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  color: var(--background-color);
-  font-size: 16px;
-  line-height: 22px;
-}
-
-.hero a:any-link {
-  color: var(--background-color);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.hero a:hover {
-  text-decoration: underline;
+/* Row 1: Navy bar with background image */
+.hero > div:first-child {
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+  border-radius: 80px 0 0 0;
 }
 
 .hero picture {
   position: absolute;
-  z-index: 0;
   inset: 0;
-  box-sizing: border-box;
+  z-index: 0;
 }
 
 .hero img {
@@ -66,17 +36,54 @@
   height: 100%;
 }
 
-.hero > div {
+/* Row 2: White overlap container */
+.hero > div:last-child {
+  background-color: var(--background-color, #fff);
+  border-radius: 40px 0 0 0;
+  padding: 40px 24px 32px;
+  margin-top: -60px;
   position: relative;
   z-index: 1;
 }
 
+.hero h1 {
+  color: var(--brand-navy, #071d49);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 44px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.hero p {
+  color: var(--brand-navy, #071d49);
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+.hero a:any-link {
+  color: var(--brand-navy, #071d49);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero a:hover {
+  text-decoration: underline;
+}
+
 @media (width >= 900px) {
   .hero-container {
-    margin: 0 70px;
+    margin: 0 55px;
   }
 
-  .hero {
-    padding: 56px 70px 24px;
+  .hero > div:first-child {
+    min-height: 288px;
+  }
+
+  .hero > div:last-child {
+    padding: 56px 55px 40px;
+    margin-top: -112px;
   }
 }
