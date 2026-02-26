@@ -1,27 +1,90 @@
+/* Cards block - matches AbbVie R&D Leaders card styling */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: transparent;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards .cards-card-body a:any-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
 }
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+.cards .cards-card-body {
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cards .cards-card-body h4 {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--brand-navy, #071d49);
+  line-height: 24px;
+  margin: 0 0 8px;
+}
+
+.cards .cards-card-body p {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--brand-navy, #071d49);
+  line-height: 16px;
+  margin: 0 0 4px;
+}
+
+.cards .cards-card-body p:last-child {
+  margin-top: auto;
+}
+
+.cards .cards-card-body p:last-child a,
+.cards .cards-card-body p:last-child a.button:any-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-blue, #0066f5);
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  text-decoration: none;
+  display: inline;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  white-space: normal;
+}
+
+.cards .cards-card-body p:last-child a:hover,
+.cards .cards-card-body p:last-child a.button:hover {
+  text-decoration: underline;
+  background-color: transparent;
+  color: var(--brand-blue, #0066f5);
+}
+
+.cards .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

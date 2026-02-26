@@ -1,37 +1,62 @@
+/* Hero block - matches AbbVie hero container styling */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+.hero-container {
+  margin: 0 16px;
+}
+
 .hero {
   position: relative;
   padding: 40px 24px;
-  min-height: 300px;
+  min-height: 260px;
+  border-radius: 64px 0 0 0;
+  overflow: hidden;
+  background-color: var(--brand-navy, #071d49);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .hero h1 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   color: var(--background-color);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 44px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .hero p {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   color: var(--background-color);
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .hero a:any-link {
   color: var(--background-color);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero a:hover {
+  text-decoration: underline;
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
-  object-fit: cover;
   box-sizing: border-box;
 }
 
@@ -41,8 +66,17 @@
   height: 100%;
 }
 
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
 @media (width >= 900px) {
+  .hero-container {
+    margin: 0 70px;
+  }
+
   .hero {
-    padding: 40px 32px;
+    padding: 56px 70px 24px;
   }
 }
