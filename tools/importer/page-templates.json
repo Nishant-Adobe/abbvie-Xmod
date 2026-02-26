@@ -175,6 +175,44 @@
           ]
         }
       ]
+    },
+    {
+      "name": "rd-leaders",
+      "urls": [
+        "https://www.abbvie.com/science/our-people/our-rd-leaders.html"
+      ],
+      "description": "R&D leadership directory page featuring profile cards for AbbVie's senior Research & Development leaders, each with a headshot, name, title, and link to their full bio",
+      "blocks": [
+        {
+          "name": "cards",
+          "instances": [
+            ".grid:has(.cmp-biography-card)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-intro",
+          "name": "Page Introduction",
+          "selector": ".text:has(.cmp-title)",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".cmp-title",
+            ".cmp-text"
+          ]
+        },
+        {
+          "id": "section-leaders",
+          "name": "R&D Leader Cards",
+          "selector": ".grid:has(.cmp-biography-card)",
+          "style": "light",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        }
+      ]
     }
   ]
 }
